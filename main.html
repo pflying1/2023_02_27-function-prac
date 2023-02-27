@@ -41,52 +41,84 @@
         divForm2(div2);
         divForm3(div3);
 
+
+
       // root style
-      function rootForm(element) {
-        element.style.width = "100vw";
-        element.style.height = "100vh";
-        element.style.backgroundColor = "cadetblue";
-        element.style.display = "flex";
-        element.style.justifyContent = "center";
-        element.style.alignItems = "center";
-        element.style.position = "relative";
-      }
+      function rootForm(element,width,height,bgc,dispaly,justify,align,posi) {
+        element.style.width = width,
+        element.style.height = height,
+        element.style.backgroundColor = bgc,
+        element.style.display = dispaly,
+        element.style.justifyContent = justify,
+        element.style.alignItems = align,
+        element.style.position = posi
+      };
       // div 공통 스타일
-      function divAllForm(element) {
-        element.style.width = "500px";
-        element.style.height = "500px";
-        element.style.borderRadius = "250px";
-        element.style.opacity = "0.8";
-        element.style.position = "absolute";
-      }
+      function divAllForm(element,width,height,radius,opacity,posi) {
+        element.style.width = width,
+        element.style.height = height,
+        element.style.borderRadius = radius,
+        element.style.opacity = opacity,
+        element.style.position = posi
+      };
       // div 첫번째 스타일
       function divForm1(element,top,left,bgc,filter) {
         element.style.marginTop = top,
         element.style.marginLeft = left,
         element.style.backgroundColor = bgc,
         element.style.filter = filter
-      }
+      };
       // div 첫번째 스타일
       function divForm2(element,top,left,bgc,filter) {
         element.style.marginTop = top,
         element.style.marginLeft = left,
         element.style.backgroundColor = bgc,
         element.style.filter = filter
-      }
+      };
       // div 세번째 스타일
       function divForm3(element,top,left,bgc,filter) {
         element.style.marginTop = top,
         element.style.marginLeft = left,
         element.style.backgroundColor = bgc,
         element.style.filter = filter
-      }
+      };
+
+
 
       //캡슐화 시키기
+        let width = ["100vw", "500px"];
+        let height = ["100vh", "500px"];
+        let display = "250px";
+        let justifyContent = "center";
+        let alignItems = "center";
+        let position = ["relative", "absolute"];
+        let borderRadius = "250px";
+        let opacity = "0.8";
         let marginTop = ["300px", "50px", "-100px"];
         let marginLeft = ["300px", "-50px", "50px"];
-        let backgroundColor = ["salmon", "cornFlowerblue", "coral"];
+        let backgroundColor = ["cadetblue", "salmon", "cornFlowerblue", "coral"];
         let filter = ["blur(20px)", "blur(10px)"];
 
+        //rootForm 함수 호출
+        let rootForm_1 = rootForm(root, width[0], height[0], backgroundColor[0], display, justifyContent, alignItems, position[0]);
+
+        //divAll 함수 호출
+        let divAllForm_1 = divAllForm(root.children[0], width[1], height[1], borderRadius, opacity, position[1]);
+        let divAllForm_2 = divAllForm(root.children[1], width[1], height[1], borderRadius, opacity, position[1]);
+        let divAllForm_3 = divAllForm(root.children[2], width[1], height[1], borderRadius, opacity, position[1]);
+
+        //div1 함수 호출
+        let divForm1_1 = divForm1(div1, marginTop[0], marginLeft[0], backgroundColor[1], filter[0]);
+
+        //div2 함수 호출
+        let divForm2_1 = divForm2(div2, marginTop[1], marginLeft[1], backgroundColor[2], filter[0]);
+
+        //div3 함수 호출
+        let divForm3_1 = divForm3(div3, marginTop[2], marginLeft[2], backgroundColor[3], filter[1]);
+
+
+        
+        
         
     </script>
   </body>
