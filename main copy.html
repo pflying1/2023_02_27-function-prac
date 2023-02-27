@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+      <script>
+      //구조 요소 함수 
+      function rootFunc(a, b, c, d) {
+        let Structure = {
+          parentData : document.getElementById(a),
+          children1 : document.createElement(b),
+          children2 : document.createElement(c),
+          children3 : document.createElement(d)
+          };
+          return Structure;
+        };
+        //rootFunc 함수 호출
+        let structureForm = rootFunc('root', 'div', 'div', 'div');
+        let root = structureForm.parentData;
+        let div1 = structureForm.children1;
+        root.appendChild(div1);
+        let div2 = structureForm.children2;
+        root.appendChild(div2);
+        let div3 = structureForm.children3;
+        root.appendChild(div3);
+
+        //구조보기
+        console.dir(root.children);
+        
+        //root, 모든div, div1, div2, div3 스타일
+        rootForm(root);
+        divAllForm(root.children[0]);
+        divAllForm(root.children[1]);
+        divAllForm(root.children[2]);
+        divForm1(div1);
+        divForm2(div2);
+        divForm3(div3);
+
+      // root style
+      function rootForm(element) {
+        element.style.width = "100vw";
+        element.style.height = "100vh";
+        element.style.backgroundColor = "cadetblue";
+        element.style.display = "flex";
+        element.style.justifyContent = "center";
+        element.style.alignItems = "center";
+        element.style.position = "relative";
+      }
+      // div 공통 스타일
+      function divAllForm(element) {
+        element.style.width = "500px";
+        element.style.height = "500px";
+        element.style.borderRadius = "250px";
+        element.style.opacity = "0.8";
+        element.style.position = "absolute";
+      }
+      // div 첫번째 스타일
+      function divForm1(element,top,left,bgc,filter) {
+        element.style.marginTop = "300px";
+        element.style.marginLeft = "300px";
+        element.style.backgroundColor = "salmon";
+        element.style.filter = "blur(20px)";
+      }
+      // div 첫번째 스타일
+      function divForm2(element,top,left,bgc,filter) {
+        element.style.marginTop = "50px";
+        element.style.marginLeft = "-50px";
+        element.style.backgroundColor = "cornflowerblue";
+        element.style.filter = "blur(20px)";
+      }
+      // div 세번째 스타일
+      function divForm3(element,top,left,bgc,filter) {
+        element.style.marginTop = "-100px";
+        element.style.marginLeft = "50px";
+        element.style.backgroundColor = "coral";
+        element.style.filter = "blur(10px)";
+      }
+
+      //캡슐화 시키기
+        let marginTop = ["300px", "50px", "-100px"];
+        let marginLeft = ["300px", "-50px", "50px"];
+        let backgroundColor = ["salmon", "cornFlowerblue", "coral"];
+        let filter = ["blur(20px)", "blur(10px)"];
+
+        let 
+    </script>
+  </body>
+</html>
