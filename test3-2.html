@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+
+    <script>
+      
+      function dataFuncRoot () {
+        let rootFormObj = {
+          width : "100vw",
+          height : "100vh",
+          backgroundColor : "cadetblue",
+          display : "flex",
+          justifyContent : "center",
+          alignItems : "center",
+          position : "relative"
+        };
+        return rootFormObj;
+      };
+      function dataFuncRoot (wid,hei,bgc,disp,justi,align,posi) {
+        let rootFormObj = {
+          width : wid,
+          height : hei,
+          backgroundColor : bgc,
+          display : disp,
+      justifyContent : justi,
+      alignItems : align,
+      position : posi
+    };
+    return rootFormObj;
+  };
+  
+  function dataFuncDiv () {
+    let divFormObj = {
+      width : '500px',
+      height : '500px',
+      borderRadius : '250px',
+      opacity : '0.8',
+      position : 'absolute'
+    };
+    return divFormObj;
+  };
+  function dataFuncDiv (wid,hei,bord,opac,posi) {
+    let divFormObj = {
+      width : wid,
+      height : hei,
+      borderRadius : bord,
+      opacity : opac,
+      position : posi
+    };
+    return divFormObj;
+    };
+    
+    function dataFuncDiv2 () {
+      let divForm2Obj = {
+        marginTop : ["-100px", "50px", "300px"],
+        marginLeft : ["-50px","50px","300px"],
+        backgroundColor : ["salmon", "cornflowerblue", "coral"],
+        filter : ["blur(10px)","blur(20px)"]
+      };
+      return divForm2Obj;
+    };
+    
+    function dataFuncDiv2 (top,left,bgc1,filter) {
+      let divForm2Obj = {
+        width : "500px",
+        height : "500px",
+        marginTop : top,
+        marginLeft : left,
+        backgroundColor : bgc1,
+        filter : filter
+      };
+      return divForm2Obj;
+    };
+    let viewport = ["100vw","100vh"];
+    let size = [["-100px", "-50px"],["50px","250px","300px","500px"],["blur(10px)", "blur(20px)"],["0.8"]];
+    let backgroundColor = ["cadetblue", "salmon", "cornflowerblue", "coral"];
+    let flexSet = ["flex", "center"];
+    let positionSetup = ["absolute", "relative"];
+    
+    //root 부분 스타일
+    let rootForm = dataFuncRoot(viewport[0], viewport[1], backgroundColor[0], flexSet[0], flexSet[1], flexSet[1], positionSetup[1]);
+    //div 전체 스타일 
+    let divForm = dataFuncDiv(size[1][3], size[1][3], size[1][1], size[3][0], positionSetup[0]);
+    //div children 스타일
+    let divForm1 = dataFuncDiv2(size[1][3], size[1][3], size[1][2], size[1][2], backgroundColor[1], size[2][1]);
+    let divForm2 = dataFuncDiv2(size[1][3], size[1][3], size[1][0], size[0][1], backgroundColor[2], size[2][1]);
+    let divForm3 = dataFuncDiv2(size[1][3], size[1][3], size[1][2], size[1][2], backgroundColor[3], size[2][0]);
+    
+    let root = document.getElementById('root');
+    
+    root.style.width = rootForm.width;
+    root.style.height = rootForm.height;
+    root.style.backgroundColor = rootForm.backgroundColor;
+    root.style.display = rootForm.display;
+    root.style.justifyContent = rootForm.justifyContent;
+    root.style.alignItems = rootForm.alignItems;
+    root.style.position = rootForm.position;
+    
+    let div = document.createElement("div");
+    //기본 요소들
+    div.style.width = divForm.width;
+    div.style.height = divForm.height;
+    div.style.borderRadius = divForm.borderRadius;
+    div.style.opacity = divForm.opacity;
+    div.style.position = divForm.position;
+/*     //따로 적용하는 요소들
+    div.style.marginTop = divForm2.marginTop;
+    div.style.marginLeft = divForm2.marginLeft;
+    div.style.backgroundColor = divForm2.backgroundColor;
+    div.style.filter = divForm2.filter; */
+    
+    
+    let div1 = document.createElement("div");
+    div1.style.width = divForm.width;
+    div1.style.height = divForm.height;
+    div1.style.marginTop = divForm1.marginTop;
+    div1.style.marginLeft = divForm1.marginLeft;
+    div1.style.backgroundColor = divForm1.backgroundColor;
+    div1.style.filter = divForm1.filter;
+
+    let div2 = document.createElement("div"); 
+    div2.style.width = divForm.width;
+    div2.style.height = divForm.height;
+    div2.style.marginTop = divForm2.marginTop;
+    div2.style.marginLeft = divForm2.marginLeft;
+    div2.style.backgroundColor = divForm2.backgroundColor;
+    div2.style.filter = divForm2.filter;
+
+    let div3 = document.createElement("div");
+    div3.style.width = divForm.width;
+    div3.style.height = divForm.height;
+    div3.style.marginTop = divForm3.marginTop;
+    div3.style.marginLeft = divForm3.marginLeft;
+    div3.style.backgroundColor = divForm3.backgroundColor;
+    div3.style.filter = divForm3.filter;
+
+
+    root.appendChild(div);
+    div.appendChild(div1);
+    div.appendChild(div2);
+    div.appendChild(div3);
+
+  </script>
+</body>
+</html>
