@@ -5,15 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #root {
+      width: 100px;
+      height: 100px;
+      background-color: burlywood;
+    }
+
+  </style>
 </head>
 <body>
   <div id="root"></div>
   <script>
     let rootElement = document.getElementById("root");
     console.dir(rootElement);
-    let mainText = "<h1>수요일은 쉽니다.</h1>";
-    //innerHTML와 textContent의 차이 innerHTML은 HTML에서 쓰는것을 쓸수 있다.
-    rootElement.innerHTML = mainText;
+    let weekend = ["월요일 오늘", " 수요일 쉼", "금요일 놀자", "토요일 게임하자", "일요일 영화보자", "목요일에 코딩하자"];
+    let backgroundColor = ["red", "royalblue", "blue", "burlywood"];
+    let color = ["white"]
+    let counter = 0; 
+
+    //addEventListener('문자열', "함수가필요");
+    // 클릭할때마다 1증가
+    rootElement.addEventListener("click", function() {
+      
+      //위치에 따라 문서가 만들어진다.
+      //숫자증가함에 따라 배열도 1씩증가
+      //root에 text넣는 곳에 어떤 배열, 어떤 변수를 숫자로 할당
+      rootElement.innerHTML = weekend[counter];
+      rootElement.style.backgroundColor = backgroundColor[counter];
+      rootElement.style.color = color[counter];
+      
+      //counter를 1씩 증가시킨다.
+      counter = counter + 1;
+
+      if(counter >= weekend.length) {
+        //계속 반복시키게 하기 위해 counter를 재할당해준다. 
+        counter = 0;
+      };
+
+      console.dir(counter);
+    });
+
 
   </script>
 </body>
