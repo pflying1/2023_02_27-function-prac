@@ -88,24 +88,24 @@
       //캡슐화 시키기
         let width = ["100vw", "500px"];
         let height = ["100vh", "500px"];
-        let display = "250px";
-        let justifyContent = "center";
-        let alignItems = "center";
+        let display = ["250px"];
+        let justifyContent = ["center"];
+        let alignItems = ["center"];
         let position = ["relative", "absolute"];
-        let borderRadius = "250px";
-        let opacity = "0.8";
+        let borderRadius = ["250px"];
+        let opacity = ["0.8"];
         let marginTop = ["300px", "50px", "-100px"];
         let marginLeft = ["300px", "-50px", "50px"];
         let backgroundColor = ["cadetblue", "salmon", "cornFlowerblue", "coral"];
         let filter = ["blur(20px)", "blur(10px)"];
 
         //rootForm 함수 호출
-        let rootForm_1 = rootForm(root, width[0], height[0], backgroundColor[0], display, justifyContent, alignItems, position[0]);
+        let rootForm_1 = rootForm(root, width[0], height[0], backgroundColor[0], display[0], justifyContent[0], alignItems[0], position[0]);
 
         //divAll 함수 호출
-        let divAllForm_1 = divAllForm(root.children[0], width[1], height[1], borderRadius, opacity, position[1]);
-        let divAllForm_2 = divAllForm(root.children[1], width[1], height[1], borderRadius, opacity, position[1]);
-        let divAllForm_3 = divAllForm(root.children[2], width[1], height[1], borderRadius, opacity, position[1]);
+        let divAllForm_1 = divAllForm(root.children[0], width[1], height[1], borderRadius[0], opacity[0], position[1]);
+        let divAllForm_2 = divAllForm(root.children[1], width[1], height[1], borderRadius[0], opacity[0], position[1]);
+        let divAllForm_3 = divAllForm(root.children[2], width[1], height[1], borderRadius[0], opacity[0], position[1]);
 
         //div1 함수 호출
         let divForm1_1 = divForm1(div1, marginTop[0], marginLeft[0], backgroundColor[1], filter[0]);
@@ -117,7 +117,8 @@
         let divForm3_1 = divForm3(div3, marginTop[2], marginLeft[2], backgroundColor[3], filter[1]);
 
 
-        
+
+
         
         
     </script>
