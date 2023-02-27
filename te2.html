@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+  </div>
+  <script>
+    //작업자 최대건, 이재권, 정성철
+    //div 연결용 변수 만드는 함수 레거시 코드
+    /*
+    function setTreeForm() {
+      main : document.getElementById('root');
+      childMain : div = document.createElement('div'); 
+      childOfChild : div = document.createElement('div');
+    }
+    */
+    //#root의 기본 값을 정하는 캡슐화용 함수
+    function setRootForm() {
+      let rootForm = {
+      id : document.getElementById('root'),
+      width : "100vw",
+      height : "100vh",
+      backgroundColor : "cadetblue",
+      display : "flex",
+      justifyContent : "center",
+      alignItems : "center",
+      position : "relative" 
+      }
+      return rootForm;
+    }
+    //#root 전용 스타일을 정하는 함수
+    function rootAttatchStyle( element, obj ) {
+      element.style.width = obj.width;
+      element.style.height = obj.height;
+      element.style.backgroundColor = obj.backgroundColor;
+      element.style.display = obj.display;
+      element.style.justifyContent = obj.justifyContent;
+      element.style.alignItems = obj.alignItems;
+      element.style.position = obj.position;
+      
+      return element;
+    }
+    //기본 div틀을 만드는 캡슐화 함수
+    function createDivForm() {
+      let divForm = {
+        id : div = document.createElement('div'),
+        elementType : 'div',
+        width : '500px',
+        height : '500px',
+        borderRadius : '250px',
+        opacity : '0.8',
+        position : 'absolute'
+      };
+      return divForm;
+    }
+    //커스텀 div를 만드는 캠슐화 함수
+    function createDivForm(top, left, bgColor, filter){
+      let divForm = {
+        id : div = document.createElement('div'),
+        elementType : 'div',
+        width : '500px',
+        height : '500px',
+        borderRadius : '25%',
+        opacity : '0.8',
+        position : 'absolute',
+        backgroundColor : bgColor,
+        marginTop : top,
+        marginLeft : left,
+        filter : filter
+      };
+      return divForm;
+    }
+    //기본 및 커스텀 div의 스타일을 정하는 함수. 커스텀의 경우 if문을 통과하면 적용이 된다.
+    function divAttatchStyle(element, obj){
+      element.style.width = obj.width;
+      element.style.height = obj.height;
+      element.style.borderRadius = obj.borderRadius;
+      element.style.opacity = obj.opacity;
+      element.style.position = obj.position;
+      element.style.backgroundColor = obj.backgroundColor;
+      if(obj.marginTop !== undefined){
+        element.style.marginTop = obj.marginTop;
+      }
+      if(obj.marginLeft !== undefined){
+        element.style.marginLeft = obj.marginLeft;
+      }
+      if(obj.filter !== undefined){
+        element.style.filter = obj.filter;  
+      }
+      return element;
+    }
+    //루트폼 캡슐화 함수 호출
+    let rootForm = setRootForm();
+    //커스텀 div1 캡슐화 함수 호출
+    let divFormC1 = createDivForm("300px","300px", "salmon", "blur(20px)");
+    //커스텀 div2 캡슐화 함수 호출
+    let divFormC2 = createDivForm("50px", "-50px", "cornflowerblue", "blur(20px)");
+    //커스텀 div3 캡슐화 함수 호출
+    let divFormC3 = createDivForm("-100px", "50px", "coral", "blur(10px)");
+    //root 간접지정.
+    let root = rootForm.id;
+    //root 스타일 지정
+    root = rootAttatchStyle( root, rootForm );
+    //div1 간접지정
+    let divC1 = divFormC1.id;
+    //div1 스타일 지정
+    divC1 = divAttatchStyle(divC1, divFormC1);
+    console.log(divC1);
+    //div2 간접지정
+    let divC2 = divFormC2.id;
+    //div2 스타일 지정
+    divC2 = divAttatchStyle(divC2, divFormC2);
+    console.log(divC2);
+    //div3 간접 지정
+    let divC3 = divFormC3.id;
+    //div3 스타일 지정
+    divC3 = divAttatchStyle(divC3, divFormC3);
+    console.log(divC3);
+    root.appendChild(divC1);
+    root.appendChild(divC2);
+    root.appendChild(divC3);
+    // 색 변경용 컬러 에셋
+    let colors = ["lightblue","lightgreen","lightgoldenrodyellow","lightcoral"]
+    // 카운트용 전역 변수
+    let count = 0;
+    //이벤트 리스너, 클릭. 클릭시 색을 변경하고 카운트를 1 올린다. if문 colors의 최대길이에 도달 혹은 넘어서면 0으로 변환된다.
+    root.children[0].addEventListener('click', function() {      
+      divC1.style.backgroundColor = colors[count];
+      count = count + 1;
+      if(count >= colors.length){
+        count = 0;
+      }
+      divC2.style.backgroundColor = colors[count];
+      count = count + 1;
+      if(count >= colors.length){
+        count = 0;
+      }
+      divC3.style.backgroundColor = colors[count];
+      count = count + 1;
+      if(count >= colors.length){
+        count = 0;
+      }
+    });
+
+  </script>
+</body>
+</html>

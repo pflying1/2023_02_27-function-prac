@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+
+  </div>
+  <script>
+    // 구조의 요소를 받는 함수
+    function rootConnector(a, b, c, d) {
+      let rootTree = {
+        parentNode : document.getElementById(a),
+        childNode : document.createElement(b),
+        grandChildNodeOne : document.createElement(c),
+        grandChildNodeTwo : document.createElement(d),
+      };
+      return rootTree;
+    };
+    // 구조의 요소를 root, div, div, div로 설정
+    let styleForm = rootConnector('root', 'div', 'div', 'div');
+    let root = styleForm.parentNode;
+    let div1 = styleForm.childNode;
+    // div1을 root에 자식으로 설정
+    root.appendChild(div1);
+    let div2 = styleForm.grandChildNodeOne;
+    // div2을 root에 자식으로 설정
+    root.appendChild(div2);
+    let div3 = styleForm.grandChildNodeTwo;
+    // div3을 root에 자식으로 설정
+    root.appendChild(div3);
+    
+    // 구조 확인
+    console.dir(root.style);
+    console.dir(root.children);
+    // root, 공통 div, div1,2,3 스타일 설정
+    rootStyle(root);
+    divStyle(root.children[0]);
+    divStyle(root.children[1]);
+    divStyle(root.children[2]);
+    divOneStyle(div1);
+    divTwoStyle(div2);
+    divThreeStyle(div3);
+    
+    // let circleColor = ["blue", "red", "green"];
+
+    // console.dir(div1.style.backgroundColor);
+    // root.children[0].addEventListener('click', function() {
+    //   for (let i = 0; i > circleColor.length; i++) {
+    //     div1.style.backgroundColor = "circleColor[i]";
+    //   }
+    // })
+
+    // 캡슐화 시도의 흔적
+    let width = {
+      root : "100vw",
+      commonDiv : "500px",
+      divOne : "300px",
+      divTwo : "50px",
+      divThree : "-100px"
+    };
+    let height = {
+      root : "100vh",
+      commonDiv : "500px",
+    };
+    let bgColor = {
+      root : "cadetblue",
+      divOne : "salmon",
+      divTwo : "cornflowerblue",
+      divThree : "coral"
+    };
+    let position = {
+      root : "relative",
+      commonDiv : "absolute"
+    };
+    let filter = {
+      divOne : "blur(20px)",
+      divTwo : "blur(20px)",
+      divThree : "blur(10px)"
+    };
+    let marginTop = {
+      divOne : "300px",
+      divTwo : "50px",
+      divThree : "-100px"
+    };
+    let marginLeft = {
+      divOne : "300px",
+      divTwo : "-50px",
+      divThree : "50px"
+    };
+    
+    // root style
+    function rootStyle (element) {
+      element.style.width = "100vw";
+      element.style.height = "100vh";
+      element.style.backgroundColor = "cadetblue";
+      element.style.display = "flex";
+      element.style.justifyContent = "center";
+      element.style.alignItems = "center";
+      element.style.position = "relative";
+    }
+    // 공통 div 스타일
+    function divStyle (element) {
+      element.style.width = "500px";
+      element.style.height = "500px";
+      element.style.borderRadius = "250px";
+      element.style.opacity = "0.8";
+      element.style.position = "absolute";
+    }
+    // 첫번째 div 스타일
+    function divOneStyle (element) {
+      element.style.marginTop = "300px";
+      element.style.marginLeft = "300px";
+      element.style.backgroundColor = "salmon";
+      element.style.filter = "blur(20px)"
+    }
+    // 두번째 div 스타일
+    function divTwoStyle (element) {
+      element.style.marginTop = "50px";
+      element.style.marginLeft = "-50px"
+      element.style.backgroundColor = "cornflowerblue"
+      element.style.filter = "blur(20px)"
+    }
+    // 세번째 div 스타일
+    function divThreeStyle (element) {
+      element.style.marginTop = "-100px";
+      element.style.marginLeft = "50px"
+      element.style.backgroundColor = "coral"
+      element.style.filter = "blur(10px)"
+    }
+    
+
+  </script>
+</body>
+</html>

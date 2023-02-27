@@ -17,6 +17,8 @@
   <div id="root"></div>
   <script>
     let root = document.getElementById("root");
+    let color = ["blue", "skyblue", "purple", "burlywood", "#666666"];
+    let size = [["10vw", "20vw", "30vw", "40vw", "50vw", "60vw","70vw","80vw","90vw"],["500vw","200vw","300vw"]];
 
     console.dir(root);
     console.dir(root.style);
@@ -25,7 +27,8 @@
     // 순서가 꼬이기 쉽다. 
     //css는 정 쓸곳이 없을때나 쓰인다. 
     root.style.width = "200px";
-
+    root.style.backgroundColor = color[2];
+    root.style.width = size[0][0];
   </script>
 </body>
 </html>
